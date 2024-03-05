@@ -55,7 +55,7 @@ GO
 ---Exercise 4
 ---Enhance your query from Exercise 3 by adding a derived column called
 ---"ProductVsCategoryDelta" that returns the result of the following calculation:
----A product's list price, MINUS the average ListPrice for that productís category.
+---A product's list price, MINUS the average ListPrice for that product‚Äôs category.
 SELECT a.[Name] AS ProductName
 ,a.[ListPrice]
 ,b.[Name] AS ProductSubcategory
@@ -110,7 +110,7 @@ GO
 
 ---Exercise 3
 ---Enhance your query from Exercise 2 by adding a derived column called
----"Category Price Rank" that ranks all products by ListPrice ñ within each category
+---"Category Price Rank" that ranks all products by ListPrice ‚Äì within each category
 --- in descending order. In other words, every product within a given category should 
 ---be ranked relative to other products in the same category.
 
@@ -131,8 +131,8 @@ GO
 
 ---Exercise 4
 ---Enhance your query from Exercise 3 by adding a derived column called
----"Top 5 Price In Category" that returns the string ìYesî if a product has one of the top 5
----list prices in its product category, and ìNoî if it does not. You can try incorporating 
+---"Top 5 Price In Category" that returns the string ‚ÄúYes‚Äù if a product has one of the top 5
+---list prices in its product category, and ‚ÄúNo‚Äù if it does not. You can try incorporating 
 ---your logic from Exercise 3 into a CASE statement to make this work.
 
 SELECT a.[Name] AS ProductName
@@ -156,9 +156,9 @@ GO
 --RANKING
 ---Exercise 1
 ---Using your solution query to Exercise 4 from the ROW_NUMBER exercises as a staring point, add a derived 
----column called ìCategory Price Rank With Rankî that uses the RANK function to rank all products
----by ListPrice ñ within each category - in descending order. Observe the differences between the 
----ìCategory Price Rankî and ìCategory Price Rank With Rankî fields.
+---column called ‚ÄúCategory Price Rank With Rank‚Äù that uses the RANK function to rank all products
+---by ListPrice ‚Äì within each category - in descending order. Observe the differences between the 
+---‚ÄúCategory Price Rank‚Äù and ‚ÄúCategory Price Rank With Rank‚Äù fields.
 
 SELECT a.[Name] AS ProductName
 ,a.[ListPrice]
@@ -184,9 +184,9 @@ GO
 ---Exercise 2
 
 ---Modify your query from Exercise 2 by adding a derived column called "Category Price Rank With
----Dense Rank" that that uses the DENSE_RANK function to rank all products by ListPrice ñ within 
----each category - in descending order. Observe the differences among the ìCategory Price Rankî,
----ìCategory Price Rank With Rankî, and ìCategory Price Rank With Dense Rankî fields.
+---Dense Rank" that that uses the DENSE_RANK function to rank all products by ListPrice ‚Äì within 
+---each category - in descending order. Observe the differences among the ‚ÄúCategory Price Rank‚Äù,
+---‚ÄúCategory Price Rank With Rank‚Äù, and ‚ÄúCategory Price Rank With Dense Rank‚Äù fields.
 
 SELECT a.[Name] AS ProductName
 ,a.[ListPrice]
@@ -211,10 +211,10 @@ GO
 
 ---USING LEAD LAG
 ---Create a query with the following columns:
----ìPurchaseOrderIDî from the Purchasing.PurchaseOrderHeader table
----ìOrderDateî from the Purchasing.PurchaseOrderHeader table
----ìTotalDueî from the Purchasing.PurchaseOrderHeader table
----ìNameî from the Purchasing.Vendor table, which can be aliased as ìVendorNameî*
+---‚ÄúPurchaseOrderID‚Äù from the Purchasing.PurchaseOrderHeader table
+---‚ÄúOrderDate‚Äù from the Purchasing.PurchaseOrderHeader table
+---‚ÄúTotalDue‚Äù from the Purchasing.PurchaseOrderHeader table
+---‚ÄúName‚Äù from the Purchasing.Vendor table, which can be aliased as ‚ÄúVendorName‚Äù*
 ---*Join Purchasing.Vendor to Purchasing.PurchaseOrderHeader on BusinessEntityID = VendorID
 
 SELECT 
@@ -250,8 +250,8 @@ GO
 
 ---Exercise 2
 --Modify your query from Exercise 1 by adding a derived column called
----"PrevOrderFromVendorAmt", that returns the ìpreviousî TotalDue value (relative to the current row)
----within the group of all orders with the same vendor ID. We are defining ìpreviousî based on order date.
+---"PrevOrderFromVendorAmt", that returns the ‚Äúprevious‚Äù TotalDue value (relative to the current row)
+---within the group of all orders with the same vendor ID. We are defining ‚Äúprevious‚Äù based on order date.
 
 SELECT 
 d.[PurchaseOrderID]
@@ -272,9 +272,9 @@ GO
 
 ---Exercise 3
 ---Modify your query from Exercise 2 by adding a derived column called
----"NextOrderByEmployeeVendor", that returns the ìnextî vendor name (the ìnameî field from Purchasing.Vendor)
+---"NextOrderByEmployeeVendor", that returns the ‚Äúnext‚Äù vendor name (the ‚Äúname‚Äù field from Purchasing.Vendor)
 ---within the group of all orders that have the same EmployeeID value in Purchasing.PurchaseOrderHeader.
----Similar to the last exercise, we are defining ìnextî based on order date.
+---Similar to the last exercise, we are defining ‚Äúnext‚Äù based on order date.
 SELECT 
 d.[PurchaseOrderID]
 ,d.[OrderDate]
@@ -294,7 +294,7 @@ GO
 
 ---Exercise 4
 ---Modify your query from Exercise 3 by adding a derived column called "Next2OrderByEmployeeVendor" that returns,
----within the group of all orders that have the same EmployeeID, the vendor name offset TWO orders into the ìfutureî 
+---within the group of all orders that have the same EmployeeID, the vendor name offset TWO orders into the ‚Äúfuture‚Äù 
 ---relative to the order in the current row. The code should be very similar to Exercise 3, but with an extra argument
 ---passed to the Window Function used.
 
